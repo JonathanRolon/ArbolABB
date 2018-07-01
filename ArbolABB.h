@@ -33,11 +33,6 @@ class ArbolABB{
 		T obtenerRaiz();
 
 		/*
-		 * post:busca clave en el arbol y devuelve si existe
-		 */
-		bool esta(T clave , NodoABB <T> *raiz);
-
-		/*
 		 * post : inserta la clave en el arbol, el mismo queda modificado
 		 */
 		void insertar(T clave);
@@ -70,6 +65,11 @@ class ArbolABB{
 		T postOrden(NodoABB<T> *r);
 
 		/*
+		 * post:busca clave en el arbol y devuelve si existe
+		 */
+		bool esta(T clave );
+
+		/*
 		 * post: el arbol queda arrancado, se elimina el mismo
 		 */
 		void arrancarArbol(NodoABB <T> * entrada);
@@ -81,7 +81,6 @@ class ArbolABB{
 
 
 	private:
-
 
 		/* pre: hijo es 1 o 2 (izq. o der.), padre es NULL en principio
 		 * post: inserta la clave, el arbol queda modificado
@@ -152,20 +151,9 @@ T ArbolABB<T>::obtenerRaiz(){
 }
 
 template <class T>
-bool ArbolABB<T>::esta(T claveBuscada, NodoABB<T> *raiz){ // Buscar Dato
+bool ArbolABB<T>::esta(T claveBuscada){ // Buscar Dato
 
-	if (raiz == NULL){
-		return false;
-	}else{
-		if(raiz->obtenerClave()==claveBuscada){
-			return true;
-		}else
-			if(claveBuscada > raiz->obtenerClave()){
-				esta(claveBuscada,raiz->obtenerHijoDerecho());
-			}else{
-				esta(claveBuscada,raiz->obtenerHijoIzquierdo());
-			}
-	}
+	return (encontrarNodo(claveBuscada,raiz)!=NULL);
 }
 
 template <class T>

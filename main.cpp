@@ -1,6 +1,7 @@
 
 #include "ArbolABB.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -14,13 +15,14 @@ int main(){
 		 *       4  10
 		 */
 
-		ArbolABB<int> arbol(2);
+		ArbolABB<string> arbol("MENDOZA");
 
-		arbol.insertar(5);
-		arbol.insertar(10);
-		arbol.insertar(4);
+		arbol.insertar("SAN JUAN");
+		arbol.insertar("CORDOBA");
+		arbol.insertar("SAN LUIS");
+		cout<<"existe?"<<arbol.esta("LA PAMPA")<<endl;
 
-		arbol.eliminarDato(5);
+		//arbol.eliminarDato(5);
 
 		cout<<"Arbol ordenado"<<endl;
 		arbol.obtenerArbol();
